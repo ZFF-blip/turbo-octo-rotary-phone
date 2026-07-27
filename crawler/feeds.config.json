@@ -1,0 +1,22 @@
+{
+  "_comment": "RSS/Atom 源配置（零 token）。每个类目下列出若干免费源，含微信公众号 RSS 镜像（anyfeeder / decemberpei）。爬虫会抓取并合并去重，按日期取最新若干条写入 feeds.json。slug 失效或源挂掉会被自动跳过，不影响其它源。",
+  "法律": [
+    { "name": "侠客岛", "url": "https://plink.anyfeeder.com/weixin/xiake_island", "note": "时政法治·党媒文风" },
+    { "name": "长安街知事", "url": "https://plink.anyfeeder.com/weixin/capitalnews", "note": "时政要闻·法治" },
+    { "name": "棱镜", "url": "https://plink.anyfeeder.com/weixin/lengjing_qqfinance", "note": "财经法治深度" }
+  ],
+  "宣传": [
+    { "name": "人民日报", "url": "https://decemberpei.cyou/rssbox/wechat-renminribao.xml", "note": "主流舆论·传播" },
+    { "name": "侠客岛", "url": "https://plink.anyfeeder.com/weixin/xiake_island", "note": "时政传播" }
+  ],
+  "公文写作": [
+    { "name": "人民日报", "url": "https://decemberpei.cyou/rssbox/wechat-renminribao.xml", "note": "公文文风范本" },
+    { "name": "三联生活周刊", "url": "https://decemberpei.cyou/rssbox/wechat-sanlianshenghuozhoukan.xml", "note": "深度写作" },
+    { "name": "南方周末", "url": "https://decemberpei.cyou/rssbox/wechat-nanfangzhoumo.xml", "note": "调查报道·叙事" }
+  ],
+  "心理": [
+    { "name": "L先生说", "url": "https://decemberpei.cyou/rssbox/wechat-lxianshengshuo.xml", "note": "认知·自我管理" },
+    { "name": "利维坦", "url": "https://decemberpei.cyou/rssbox/wechat-liweitan.xml", "note": "心理学·怪诞科学" },
+    { "name": "环球科学", "url": "https://decemberpei.cyou/rssbox/wechat-huanqiukexue.xml", "note": "脑科学·科普" }
+  ]
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no" />
+  <meta name="theme-color" content="#4f46e5" />
+  <title>个人工作台</title>
+  <link rel="manifest" href="manifest.webmanifest?v=20260727d" />
+  <link rel="apple-touch-icon" href="icon.svg" />
+  <link rel="icon" href="icon.svg" />
+  <!-- 艺术字体（中国镜像，离线回退系统楷体/宋体） -->
+  <link rel="preconnect" href="https://fonts.googleapis.cn" />
+  <link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
+  <!-- 艺术字体：非阻塞加载，连不上 CDN 时立即用系统楷体/宋体，避免整页白屏 -->
+  <link rel="stylesheet" href="https://fonts.googleapis.cn/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.cn/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="css/style.css?v=20260727d" />
+</head>
+<body>
+  <div class="phone">
+    <header class="app-header">
+      <div class="app-header__title">
+        <span class="brand">个人工作台</span>
+        <span class="brand-sub" id="headerSub">让每一天都有迹可循</span>
+      </div>
+      <div class="app-header__actions">
+        <button class="weather-chip" id="weatherChip" title="天气">
+          <span id="weatherIcon">⛅</span><span id="weatherTemp">--°</span>
+        </button>
+        <button class="icon-btn" id="syncBtn" title="同步">🔄</button>
+        <button class="icon-btn" id="exportBtn" title="导出数据">⤓</button>
+        <button class="icon-btn" id="importBtn" title="导入数据">⤒</button>
+        <input type="file" id="importFile" accept="application/json" hidden />
+      </div>
+    </header>
+
+    <main id="view" class="view"><!-- 动态渲染 --></main>
+
+    <!-- 悬浮新增 -->
+    <button class="fab" id="fab" aria-label="新增">＋</button>
+
+    <!-- 底部标签栏 -->
+    <nav class="tabbar" id="tabbar">
+      <button class="tabbar__item is-active" data-tab="home"><span class="tabbar__ico">🏠</span><span>首页</span></button>
+      <button class="tabbar__item" data-tab="work"><span class="tabbar__ico">💼</span><span>工作</span></button>
+      <button class="tabbar__item" data-tab="life"><span class="tabbar__ico">🌿</span><span>生活</span></button>
+      <button class="tabbar__item" data-tab="study"><span class="tabbar__ico">📚</span><span>学习</span></button>
+      <button class="tabbar__item" data-tab="side"><span class="tabbar__ico">💰</span><span>财务</span></button>
+      <button class="tabbar__item" data-tab="review"><span class="tabbar__ico">📝</span><span>复盘</span></button>
+    </nav>
+  </div>
+
+  <!-- 快捷添加动作面板 -->
+  <div class="sheet-mask" id="actionSheet" hidden>
+    <div class="action-sheet" id="actionSheetInner">
+      <div class="action-sheet__hd">快速记录</div>
+      <div class="action-grid" id="actionGrid"></div>
+      <button class="action-sheet__cancel" id="actionCancel">取消</button>
+    </div>
+  </div>
+
+  <!-- 新增/编辑 底部表单 -->
+  <div class="sheet-mask" id="sheet" hidden>
+    <div class="sheet" role="dialog" aria-modal="true">
+      <div class="sheet__hd">
+        <span id="sheetTitle">新增</span>
+        <button class="sheet__close" id="sheetClose">✕</button>
+      </div>
+      <div class="sheet__body" id="sheetBody"></div>
+    </div>
+  </div>
+
+  <!-- 通用弹窗（看板/项目/知识详情/同步设置等） -->
+  <div class="modal-mask" id="modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true">
+      <div class="modal__hd">
+        <span id="modalTitle">标题</span>
+        <button class="sheet__close" id="modalClose">✕</button>
+      </div>
+      <div class="modal__body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- 轻提示 -->
+  <div class="toast" id="toast" hidden></div>
+
+  <script src="js/store.js?v=20260727d"></script>
+  <script src="js/sync.js?v=20260727d"></script>
+  <script src="js/app.js?v=20260727d"></script>
+</body>
+</html>

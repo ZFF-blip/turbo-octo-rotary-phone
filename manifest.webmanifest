@@ -1,0 +1,19 @@
+{
+  "name": "个人工作台",
+  "short_name": "工作台",
+  "description": "工作 · 生活 · 学习 · 副业 · 每日复盘 一体化个人管理",
+  "start_url": "index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f4f5f9",
+  "theme_color": "#4f46e5",
+  "lang": "zh-CN",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
