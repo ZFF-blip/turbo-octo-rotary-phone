@@ -1,0 +1,27 @@
+name: RSS 每日更新
+
+on:
+  schedule:
+    - cron: '0 22 * * *'   # UTC 22:00 = 北京时间次日 06:00
+  workflow_dispatch:        # 允许在 Actions 页面手动触发
+
+permissions:
+  contents: write
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: 运行爬虫
+        run: node crawler/rss-crawler.js
+      - name: 提交 feeds.json
+        run: |
+          git config user.name "rss-bot"
+          git config user.email "bot@workbuddy.local"
+          git add feeds.json
+          git diff --cached --quiet || git commit -m "chore: 每日 RSS 更新 $(date +%F)"
+          git push
